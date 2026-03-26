@@ -1,0 +1,18 @@
+[project]
+name = "job-postings-pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dbt>=1.0.0.40.15",
+    "dbt-core>=1.11.7",
+    "dbt-snowflake>=1.11.3",
+    "loguru>=0.7.3",
+    "mcp[cli]>=1.26.0",
+    "pandas>=3.0.1",
+    "pyarrow>=23.0.1",
+    "python-dotenv>=1.2.2",
+    "requests>=2.32.5",
+    "snowflake-connector-python>=4.3.0",
+]
