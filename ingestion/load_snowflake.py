@@ -39,6 +39,7 @@ def extract_job_fileds_from_raw(jobs : list) -> list:
     contract_types = []
     salaries = []
     descriptions = []
+    redirect_urls = []
 
     for job in jobs:
         ids.append(job.get("id"))
@@ -50,6 +51,7 @@ def extract_job_fileds_from_raw(jobs : list) -> list:
         contract_types.append(job.get("contract_time"))
         salaries.append((job.get("salary_min"), job.get("salary_max")))
         descriptions.append(job.get("description"))
+        redirect_urls.append(job.get("redirect_url"))
 
     logger.info("Sucessfully extracted job fields")
     return [
@@ -64,10 +66,11 @@ def extract_job_fileds_from_raw(jobs : list) -> list:
         "salary_min" : salary[0],
         "salary_max" : salary[1],
         "description" : description,
+        "redirect_url" : redirect_url,
         "load_date" : datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
     }
-    for id, title, job_short_title, company_name, location, posted_date, contract_type, salary, description
-    in zip(ids, titles, short_titles, company_names, locations, posted_dates, contract_types, salaries, descriptions)
+    for id, title, job_short_title, company_name, location, posted_date, contract_type, salary, description, redirect_url
+    in zip(ids, titles, short_titles, company_names, locations, posted_dates, contract_types, salaries, descriptions, redirect_urls)
     ]
 
 @handle_exceptions
@@ -100,6 +103,7 @@ def create_raw_job_postings_table(conn : snowflake.connector.SnowflakeConnection
             salary_max FLOAT,
             contract_type VARCHAR,
             description VARCHAR,
+            redirect_url VARCHAR,
             load_date DATETIME
         );
         """
