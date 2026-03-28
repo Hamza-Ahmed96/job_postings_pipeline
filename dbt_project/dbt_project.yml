@@ -32,5 +32,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   job_postings_pipeline:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    staging:
+      +materialized: table
+      +schema: staging
+    dimensions:
+      +materialized: table
+      +schema: dimensions
+    facts:
+      +materialized: table
+      +schema: facts
+    marts:
       +materialized: view
+      +schema: marts
+
