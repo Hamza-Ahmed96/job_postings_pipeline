@@ -13,7 +13,7 @@ WITH distinct_roles AS (
     WHERE role IS NOT NULL
 )
 SELECT
-    ROW_NUMBER() OVER(ORDER BY role) AS role_id,
+    'R' || ROW_NUMBER() OVER(ORDER BY role) AS role_id,
     role
 FROM distinct_roles
 
