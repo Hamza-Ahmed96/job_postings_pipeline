@@ -21,6 +21,7 @@ staged as (
         job_title_short as role,
         title,
         company_name,
+        job_posted_date,
         trim(split_part(location, ',', 1)) as city,
         trim(split_part(location, ',', 2)) as region,
         salary_min as minimum_salary,
