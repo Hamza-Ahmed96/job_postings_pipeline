@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "adzuna-pipeline": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcpserver/server.py"
+      ],
+      "env": {}
+    }
+  }
+}
