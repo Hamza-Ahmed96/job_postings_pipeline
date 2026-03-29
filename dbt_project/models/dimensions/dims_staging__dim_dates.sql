@@ -13,7 +13,8 @@ SELECT
       TO_CHAR(date_day, 'MMMM')          AS month_name,                                                                                                
       MONTH(date_day)                     AS month_number,                                                                                             
       YEAR(date_day)                      AS year,
-      WEEKOFYEAR(date_day)                AS week_number                                                                                               
+      WEEKOFYEAR(date_day)                AS week_number,
+      job_posted_date                                                                                        
   FROM distinct_dates
   ORDER BY date_day                               
 
